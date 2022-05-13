@@ -1,7 +1,7 @@
 
+-- h2 数据库不要用 drop table 建表!!，不然每次启动应用都会被 drop 掉清空数据
 
-drop table if exists notation;
-create table notation
+create table if not exists notation  
 (
     id bigint auto_increment,
     notation_name varchar(256),
@@ -16,8 +16,7 @@ create table notation
         primary key (id)
 );
 
-drop table if exists notation_file;
-create table notation_file
+create table if not exists notation_file
 (
     id bigint auto_increment,
     notation_id bigint,
