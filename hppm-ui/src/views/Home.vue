@@ -42,24 +42,6 @@
                   :notationProp="notation"
                   @click.native="showDetail(notation)"
           />
-          <!--          <v-card flat v-for="(song, index) in notations" :key="song.id" @click="showDetail(song)">-->
-          <!--            <v-row>-->
-          <!--              <v-col cols="1"> &lt;!&ndash;为其指定列宽 1&ndash;&gt;-->
-          <!--                <div class="d-flex justify-center">-->
-          <!--                  <span class="mt-1">{{ index + 1 }}</span>-->
-          <!--                </div>-->
-          <!--              </v-col>-->
-          <!--              <v-col>-->
-          <!--                <div class="caption">-->
-          <!--                  <span class="text-subtitle-1 mr-1">{{ song.songName }}</span>-->
-          <!--                  <span class="grey&#45;&#45;text">{{ song.artist }}</span>-->
-          <!--                </div>-->
-          <!--                <v-chip x-small outlined color="green">{{ song.playCategory }}</v-chip>-->
-          <!--              </v-col>-->
-          <!--            </v-row>-->
-          <!--            <v-divider></v-divider>-->
-          <!--          </v-card>-->
-
           <v-pagination v-model="page"
                         :length="totalPages"
                         total-visible="7"

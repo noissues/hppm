@@ -1,35 +1,32 @@
 <template>
-  <v-card
-          :class="notationItemClass"
-          flat
-          :color="notation.color"
-          @mouseleave="hover = false"
-          @mouseover="hover = true"
-  >
-    <div class="d-flex flex-no-wrap align-center">
-      <v-avatar
-              rounded
-              size="56"
-              class="ma-3"
-      >
-        <v-img :src="notation.src"></v-img>
-      </v-avatar>
-      <v-row>
-        <v-col>
-          <div>{{ notationProp.notationName }}</div>
-          <v-chip small outlined class="ma-0" color="primary">{{ playCategoryDisplay }}</v-chip>
-          <v-chip small outlined class="ma-1" color="green">{{ notationCategoryDisplay }}</v-chip>
-        </v-col>
-        <v-col>
-          <div class="mr-2" >{{ notationProp.songName }}</div>
-          <span class="subtitle-2 grey--text" >{{ notationProp.artist }}</span>
-        </v-col>
-      </v-row>
-    </div>
-  </v-card>
-  
-  
-  
+  <v-hover v-slot="{ hover }">
+    <v-card
+            flat
+            :color="notation.color"
+            :class="{ 'on-hover': hover }"
+    >
+      <div class="d-flex flex-no-wrap align-center">
+        <v-avatar
+                rounded
+                size="56"
+                class="ma-3"
+        >
+          <v-img :src="notation.src"></v-img>
+        </v-avatar>
+        <v-row>
+          <v-col cols="6">
+            <div class="text-no-wrap text-truncate">{{ notationProp.notationName }}</div>
+            <v-chip small outlined class="ma-0" color="primary">{{ playCategoryDisplay }}</v-chip>
+            <v-chip small outlined class="ma-1" color="green">{{ notationCategoryDisplay }}</v-chip>
+          </v-col>
+          <v-col>
+            <div class="text-no-wrap text-truncate" >{{ notationProp.songName }}</div>
+            <span class="subtitle-2 grey--text text-no-wrap text-truncate" >{{ notationProp.artist }}</span>
+          </v-col>
+        </v-row>
+      </div>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>
@@ -40,7 +37,7 @@
       hover: false,
       notation:
           {
-            color: 'rgba(255, 255, 255, 0.85)',
+            // color: 'rgba(255, 255, 255, 0.85)',
             // src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
             src: require("../assets/images/guitar3.jpg"),
             title: '半句再见',
@@ -88,8 +85,8 @@
 
 <style scoped>
 
- .notationItem.focus {
+  .v-card.on-hover {
     transition: all 0.3s;
-    background: #b39ddb;
+    background-color: #f5f5f7;
   }
 </style>
